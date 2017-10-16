@@ -1,0 +1,56 @@
+#start-logo {
+  position: absolute;
+  width: 14em;
+  top: 65px;
+  left: calc(50% - 7em);
+  z-index: 1;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  margin: 0 4em;
+  padding: 10px;
+  width: calc(100vw - 8em);
+  color: #fff;
+  background-color: rgba(37, 37, 37, 0.8);
+  border-radius: 0 0 1em 1em;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(-4em);
+  transition: opacity 0.25s, transform 0.5s;
+}
+
+header.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+header .logo {
+  flex-grow: 1;
+  padding-top: 0.25em;
+}
+header .logo img {
+  width: 8em;
+}
+header nav {
+  display: flex;
+}
+
+.nav-option {
+  height: 1.5em;
+  margin: 0 1.5em 0 0;
+}
+
+.nav-option a {
+  font-size: 1.3em;
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+}
+.nav-option a:hover {
+  color: #202b47;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: #d3d3d3;
+}
