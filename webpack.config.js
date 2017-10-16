@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
 const { resolve } = require('path')
 
 module.exports = {
-  entry: './app/main.jsx',
+  entry: './app/index.jsx',
   output: {
     path: __dirname,
     filename: './public/bundle.js'
@@ -25,4 +25,4 @@ module.exports = {
       }
     ]
   }
-};
+}

@@ -2,6 +2,7 @@
 
 const router = require('express').Router()
 const Student = require('../db/models/student')
+const Campus = require('../db/models/campus')
 const err = require('./utils')
 
 
@@ -13,7 +14,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.param('studentId', (req, res, next, id) => {
-  Student.findById(id, { include: [{ all: true }] }) //here
+  Student.findById(id, { include: { model: Campus } })
   .then(student => {
     if (!student) next(err(404, 'Student not found'))
     req.student = student
@@ -36,14 +37,14 @@ router.post('/', (req, res, next) => {
 
 // update student
 router.put('/:studentId', (req, res, next) => {
-  req.student.update(req.body, { returning: true })
+  req.student.update(req.body)
     .then(student => res.status(200).json(student))
     .catch(next)
 })
 
 // delete student
 router.delete('/:studentId', (req, res, next) => {
-  req.student.destroy({ returning: true })
+  req.student.destroy()
     .then(() => res.status(204).end())
     .catch(next)
 })

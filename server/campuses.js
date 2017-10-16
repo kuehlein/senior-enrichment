@@ -7,10 +7,8 @@ const err = require('./utils')
 
 // find all campuses
 router.get('/', (req, res, next) => {
-  Campus.findAll({ include: [{ all: true }] })
-    .then(campuses => {
-      res.send(campuses)
-    })
+  Campus.findAll()
+    .then(campuses => res.send(campuses))
     .catch(next)
 })
 
@@ -38,14 +36,14 @@ router.post('/', (req, res, next) => {
 
 // update campus
 router.put('/:campusId', (req, res, next) => {
-  req.campus.update(req.body, { returning: true })
+  req.campus.update(req.body)
     .then(campus => res.status(200).json(campus))
     .catch(next)
 })
 
 // delete campus
 router.delete('/:campusId', (req, res, next) => {
-  req.campus.destroy({ returning: true })
+  req.campus.destroy()
     .then(() => res.status(204).end())
     .catch(next)
 })
