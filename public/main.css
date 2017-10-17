@@ -1,7 +1,9 @@
+body {
+  font-family: 'Crimson Text', serif;
+}
+
 #start-logo {
   position: absolute;
-  width: 14em;
-  top: 65px;
   left: calc(50% - 7em);
   z-index: 1;
 }
@@ -10,47 +12,52 @@ header {
   display: flex;
   position: fixed;
   margin: 0 4em;
-  padding: 10px;
-  width: calc(100vw - 8em);
+  padding: 0.5em;
+  width: calc(100vw - 10em);
   color: #fff;
-  background-color: rgba(37, 37, 37, 0.8);
+  background-color: #4d7358;
   border-radius: 0 0 1em 1em;
   z-index: 2;
-  opacity: 0;
-  transform: translateY(-4em);
-  transition: opacity 0.25s, transform 0.5s;
-}
-
-header.active {
-  transform: translateY(0);
-  opacity: 1;
 }
 
 header .logo {
   flex-grow: 1;
-  padding-top: 0.25em;
 }
 header .logo img {
-  width: 8em;
+  width: 1.8em;
 }
 header nav {
   display: flex;
 }
 
+.nav-title {
+  font-size: 1.3em;
+  font-weight: 800;
+  color: #fff;
+  flex-grow: 0.73;
+}
+
 .nav-option {
   height: 1.5em;
-  margin: 0 1.5em 0 0;
+  margin: 0 1em 0.3em 0;
 }
 
 .nav-option a {
   font-size: 1.3em;
   color: #fff;
   text-decoration: none;
-  padding: 5px;
+  padding: 0.5em;
+  transition: all 0.15s ease-in;
 }
 .nav-option a:hover {
-  color: #202b47;
   border-radius: 5px;
-  background-color: #fff;
-  box-shadow: #d3d3d3;
+  background-color: #9ed670;
+}
+
+.footer {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  color: #fff;
+  background-color: #4d7358;
 }

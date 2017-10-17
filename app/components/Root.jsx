@@ -6,7 +6,7 @@ import Footer from './Footer'
 
 
 const Root = ({ children }) => (
-  <div id="main" className="container-fluid">
+  <div id='main' className='container-fluid'>
     <Navbar />
     { children }
     <Footer />
@@ -88,7 +88,7 @@ export default Root
 // A: You wake up wet!
 // Q: How do you tell the difference between a walrus and an orange?
 // A: Put your arms around it and squeeze it. If you don't get orange juice, it's a walrus.
-// Q: What do chefs call "Baked Alaska" in Alaska?
+// Q: What do chefs call 'Baked Alaska' in Alaska?
 // A: Baked Here
 // Q: Getting a job in the Arctic in the winter is great! Why?
 // A: When the days get short, you only have to work a 30 minute work week.

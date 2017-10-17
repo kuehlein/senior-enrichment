@@ -2,6 +2,7 @@
 
 const router = require('express').Router()
 const Campus = require('../db/models/campus')
+const Student = require('../db/models/student')
 const err = require('./utils')
 
 
@@ -13,7 +14,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.param('campusId', (req, res, next, id) => {
-  Campus.findById(id, { include: [{ all: true }] })
+  Campus.findById(id, { include: { model: Student } })
   .then(campus => {
     if (!campus) next(err(404, 'Campus not found'))
     req.campus = campus

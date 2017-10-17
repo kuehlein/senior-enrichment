@@ -1,24 +1,27 @@
 'use strict'
 
 import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 
 const Navbar = () => (
   <header>
-    <div className="logo">
-      <img alt="logo" src="images/logo.png" />
-    </div>
-    <nav>
-      <div>Navstuff here :)</div>
-      <div className='nav-option'>
-        <a href='#'>Students</a>
-      </div>
-      <div className='nav-option'>
-        <a href='#'>Locations</a>
-      </div>
+    <Link className='logo' to='/'><img src='apple-logo.png'/></Link>
+    <div className='nav-title'>E d u c a t i o n___N a t i o n___</div>
+    <nav className='nav-option'>
+        <div>
+          <NavLink to='/students'>Students</NavLink>
+        </div>
+        <div>
+          <NavLink to='/campuses'>Locations</NavLink>
+        </div>
     </nav>
   </header>
 )
 
 
 export default Navbar
+
+
+// add student view
+// add campus view

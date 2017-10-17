@@ -24,13 +24,13 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 
 ### DB Design
 
-- Students
+<!-- - Students
   * have profile info (e.g. name and email)
-  * must be assigned to a campus
+  * must be assigned to a campus -->
 
-- Campuses
+<!-- - Campuses
   * have info such as a name and image
-  * can have many students assigned (may have none)
+  * can have many students assigned (may have none) -->
 
 ### Views and Functionality
 #### See Wireframes folder for visual
@@ -60,7 +60,7 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 
 ### Routes
 
-```
+<!-- ```
 GET
 - all campuses
 - a campus by id
@@ -84,11 +84,11 @@ PUT
 DELETE
 - a campus
 - a student
-```
+``` -->
 
 ### How to test functionality without a frontend
 - GET: use your browser
-- POST / PUT / DELETE : 
+- POST / PUT / DELETE :
  - CLI (command line interface) with `curl`
    - e.g. `curl -H "Content-Type: application/json" -X POST -d '{"username":"kate","password":"1234"}' http://localhost:3000/api/login`
    - `-H`: headers. `-X`: verb. `-d`: data (must be of the type specified in headers). http://[address]:[port]/[route_path]
