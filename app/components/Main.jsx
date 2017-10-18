@@ -1,40 +1,33 @@
 'use strict'
 
-import React, { Component } from 'react'
+import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
 import Root from './Root'
 import Home from './Home'
-import Students from './Students'
+import AllStudents from './AllStudents'
 import SingleStudent from './SingleStudent'
-import Campuses from './Campuses'
+import AllCampuses from './AllCampuses'
 import SingleCampus from './SingleCampus'
+import AddStudent from './AddStudent'
+import AddCampus from './AddCampus'
 
 
-export default class Main extends Component {
-  constructor() {
-    super()
-  }
+const Main = () => (
+  <Root>
+    <Switch>
+      <Route exact path='/' component={Home}/>
+      <Route exact path='/students' component={AllStudents}/>
+      <Route path='/students/:studentId' component={SingleStudent}/>
+      <Route path='/students/add' component={AddStudent}/>
+      <Route exact path='/campuses' component={AllCampuses}/>
+      <Route path='/campuses/:campusId' component={SingleCampus}/>
+      <Route path='/campuses/add' component={AddCampus}/>
+      <Redirect to='/'/>
+    </Switch>
+  </Root>
+)
 
-  // componentDidMount () {
-  // const myThunk = fetchStudents()
-  // store.dispatch(myThunk)
-  // }
 
-  render() {
-    return (
-      <Root>
-        <div className='carosel'>we got some students, and we got some campuses</div>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/students' component={Students} />
-          <Route path='/students/:studentId' component={SingleStudent} />
-          <Route exact path='/campuses' component={Campuses} />
-          <Route path='/campuses/:campusId' component={SingleCampus} />
-          <Redirect to='/' />
-        </Switch>
-      </Root>
-    )
-  }
+export default Main
 
-}

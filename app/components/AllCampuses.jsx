@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 
-export default class Campuses extends Component {
-  constructor() {
+export default class AllCampuses extends Component {
+  constructor () {
     super()
     this.state = {
       campuses: []
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     axios.get('/api/campuses/')
       .then(res => res.data)
       .then(campuses => this.setState({ campuses }))
@@ -32,7 +32,6 @@ export default class Campuses extends Component {
         <tbody>
           <tr>
             <th>Campus</th>
-            <th>Email</th>
           </tr>
           {campuses ? campuses : <tr>Directory Empty</tr>}
         </tbody>

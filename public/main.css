@@ -1,5 +1,8 @@
 body {
-  font-family: 'Crimson Text', serif;
+  color: #fff;
+  font-size: 2em;
+  font-family: 'Homemade Apple', cursive;
+  background-image: url('blackboard.jpg');
 }
 
 #start-logo {
@@ -11,12 +14,10 @@ body {
 header {
   display: flex;
   position: fixed;
-  margin: 0 4em;
   padding: 0.5em;
-  width: calc(100vw - 10em);
+  width: 100vw;
   color: #fff;
   background-color: #4d7358;
-  border-radius: 0 0 1em 1em;
   z-index: 2;
 }
 
@@ -31,6 +32,7 @@ header nav {
 }
 
 .nav-title {
+  font-family: 'Crimson Text', serif;
   font-size: 1.3em;
   font-weight: 800;
   color: #fff;
@@ -38,6 +40,7 @@ header nav {
 }
 
 .nav-option {
+  font-family: 'Crimson Text', serif;
   height: 1.5em;
   margin: 0 1em 0.3em 0;
 }
@@ -58,6 +61,7 @@ header nav {
   display: flex;
   position: fixed;
   width: 100vw;
+  font-family: 'Crimson Text', serif;
   color: #fff;
   background-color: #4d7358;
 }

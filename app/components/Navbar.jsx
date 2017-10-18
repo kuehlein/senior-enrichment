@@ -21,7 +21,3 @@ const Navbar = () => (
 
 
 export default Navbar
-
-
-// add student view
-// add campus view

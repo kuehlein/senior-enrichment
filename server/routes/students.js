@@ -1,9 +1,9 @@
 'use strict'
 
 const router = require('express').Router()
-const Student = require('../db/models/student')
-const Campus = require('../db/models/campus')
-const err = require('./utils')
+const Student = require('../../db/models/student')
+const Campus = require('../../db/models/campus')
+const err = require('../utils')
 
 
 // find all students
