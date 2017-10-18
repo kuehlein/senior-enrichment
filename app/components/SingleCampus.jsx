@@ -20,16 +20,35 @@ export default class SingleCampus extends Component {
       .catch(console.error)
   }
 
+  handleClick () {
+    axios.delete(`/api/campuses/${this.state.campus.id}`)
+      .then(res => res.data)
+      .then(() => this.props.history.push(`/`))
+      .catch(console.error)
+  }
+
   render () {
     const campus = this.state.campus
     const students = campus.students
 
     return (
       <div>
-        <div>{ campus.name }</div>
-        { students ? <div>{ <Table students={ students } /> }</div> : <div>Campus has no students</div> }
+        <h4>Campus Name:</h4><div>{ campus.name }</div>
+        <h4>Students Attending:</h4>
+        {
+          students
+            ? <div>{ <Table students={ students } /> }</div>
+            : <div>Campus has no students</div>
+        }
+        <button
+          className='button'
+          onClick={ () => this.handleClick(campus) }
+        >Delete Campus</button>
       </div>
     )
   }
 
 }
+
+// add delete and edit functionality
+

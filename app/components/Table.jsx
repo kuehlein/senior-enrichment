@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 
 
 const Table = (props) => {
@@ -10,7 +9,6 @@ const Table = (props) => {
     <tr key={ student.id }>
       <td><Link to={`/students/${student.id}`}>{ student.name }</Link></td>
       <td>{ student.email }</td>
-      <td></td>
     </tr>
   ))
 
@@ -26,6 +24,5 @@ const Table = (props) => {
     </table>
   )
 }
-
 
 export default Table

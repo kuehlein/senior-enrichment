@@ -70,6 +70,7 @@ header nav {
 .button {
   background-color: #4d7358;
   font-size: 1.3em;
+  font-family: 'Crimson Text', serif;
   color: #fff;
   text-decoration: none;
   padding: 0.5em;
@@ -86,4 +87,11 @@ header nav {
 input {
   color: #000;
   font-family: 'Crimson Text', serif;
+}
+
+.main {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }

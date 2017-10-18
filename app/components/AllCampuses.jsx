@@ -29,7 +29,7 @@ export default class AllCampuses extends Component {
 
     return (
       <div>
-        <h2>Our Locations</h2>
+        <h1>Our Locations</h1>
         <div>
           {campuses}
         </div>

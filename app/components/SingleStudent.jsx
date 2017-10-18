@@ -11,6 +11,7 @@ export default class SingleStudent extends Component {
     this.state = {
       student: {}
     }
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount () {
@@ -20,19 +21,32 @@ export default class SingleStudent extends Component {
       .catch(console.error)
   }
 
+  handleClick () {
+    axios.delete(`/api/students/${this.state.student.id}`)
+      .then(res => res.data)
+      .then(() => this.props.history.push(`/`))
+      .catch(console.error)
+  }
+
   render () {
     const student = this.state.student
-
+console.log(student)
     return (
       <div>
-        <div>{ student.name }</div>
-        <div>{ student.email }</div>
-        <div>{
+        <h4>Student Name:</h4><div>{ student.name }</div>
+        <h4>Student Email:</h4><div>{ student.email }</div>
+        <h4>Student Campus:</h4><div>{
           student.campus &&
           <Link to={`/campuses/${student.campusId}`}>{ student.campus.name }</Link>
         }</div>
+        <button
+          className='button'
+          onClick={ () => this.handleClick(student) }
+        >Delete Student</button>
       </div>
     )
   }
 
 }
+
+// add change campus functionality and edit

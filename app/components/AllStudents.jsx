@@ -24,6 +24,7 @@ export default class AllStudents extends Component {
   render () {
     return (
       <div>
+        <h1>Student Directory</h1>
         <Table students={this.state.students}/>
         <button className='button'><Link to='/students/add'>Add A Student</Link></button>
       </div>
@@ -31,6 +32,3 @@ export default class AllStudents extends Component {
   }
 
 }
-
-
-// delete functionality

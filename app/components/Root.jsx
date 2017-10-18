@@ -6,9 +6,11 @@ import Footer from './Footer'
 
 
 const Root = ({ children }) => (
-  <div id='main'>
+  <div>
     <Navbar />
-    { children }
+    <div className='main'>
+      { children }
+    </div>
     <Footer />
   </div>
 )
