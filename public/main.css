@@ -95,3 +95,7 @@ input {
   align-items: center;
   justify-content: center;
 }
+
+.title {
+  color: #4d7358;
+}

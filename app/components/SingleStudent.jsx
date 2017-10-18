@@ -30,12 +30,11 @@ export default class SingleStudent extends Component {
 
   render () {
     const student = this.state.student
-console.log(student)
     return (
       <div>
-        <h4>Student Name:</h4><div>{ student.name }</div>
-        <h4>Student Email:</h4><div>{ student.email }</div>
-        <h4>Student Campus:</h4><div>{
+        <h4 className='title'>Student Name:</h4><div>{ student.name }</div>
+        <h4 className='title'>Student Email:</h4><div>{ student.email }</div>
+        <h4 className='title'>Student Campus:</h4><div>{
           student.campus &&
           <Link to={`/campuses/${student.campusId}`}>{ student.campus.name }</Link>
         }</div>
@@ -43,10 +42,11 @@ console.log(student)
           className='button'
           onClick={ () => this.handleClick(student) }
         >Delete Student</button>
+        <button
+          className='button'
+        ><Link to={`/students/${this.state.student.id}/edit`}>Edit Student</Link></button>
       </div>
     )
   }
 
 }
-
-// add change campus functionality and edit

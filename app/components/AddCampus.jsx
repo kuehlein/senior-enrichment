@@ -24,9 +24,9 @@ export default class AddCampus extends Component {
   render() {
     return (
       <div>
-        <h3>Add A Campus</h3><br />
+        <h1>Add A Campus</h1><br />
         <form onSubmit={ this.handleSubmit }>
-          <p>Name <input
+          <p className='title'>Name <input
             type='text'
             name='name'
             value={ this.state.inputValue }

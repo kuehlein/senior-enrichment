@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import Table from './Table'
 
 
@@ -33,8 +34,8 @@ export default class SingleCampus extends Component {
 
     return (
       <div>
-        <h4>Campus Name:</h4><div>{ campus.name }</div>
-        <h4>Students Attending:</h4>
+        <h4 className='title'>Campus Name:</h4><div>{ campus.name }</div>
+        <h4 className='title'>Students Attending:</h4>
         {
           students
             ? <div>{ <Table students={ students } /> }</div>
@@ -44,6 +45,9 @@ export default class SingleCampus extends Component {
           className='button'
           onClick={ () => this.handleClick(campus) }
         >Delete Campus</button>
+        <button
+          className='button'
+        ><Link to={`/campuses/${this.state.campus.id}/edit`}>Edit Campus</Link></button>
       </div>
     )
   }

@@ -32,21 +32,21 @@ export default class AddStudent extends Component {
   render() {
     return (
       <div>
-        <h3>Add A Student</h3><br />
+        <h1>Add A Student</h1><br />
         <form onSubmit={ this.handleSubmit }>
-          <p>Name <input
+          <p className='title'>Name <input
             type='text'
             name='name'
             value={ this.state.inputName }
             onChange={ e => this.setState({ inputName: e.target.value }) }
           /></p>
-          <p>Email<input
+          <p className='title'>Email<input
             type='text'
             name='email'
             value={ this.state.inputEmail }
             onChange={ e => this.setState({ inputEmail: e.target.value }) }
           /></p>
-          <p>Campus<input
+          <p className='title'>Campus<input
             type='text'
             name='campusId'
             value={ this.state.inputCampus || '' }

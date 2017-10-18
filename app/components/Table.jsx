@@ -16,8 +16,8 @@ const Table = (props) => {
     <table>
       <tbody>
         <tr>
-          <th>Student</th>
-          <th>Email</th>
+          <th className='title'>Student</th>
+          <th className='title'>Email</th>
         </tr>
         { students ? students : <tr>Directory Empty</tr> }
       </tbody>
