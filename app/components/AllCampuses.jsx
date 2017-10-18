@@ -6,37 +6,38 @@ import axios from 'axios'
 
 
 export default class AllCampuses extends Component {
-  constructor () {
+  constructor() {
     super()
     this.state = {
       campuses: []
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     axios.get('/api/campuses/')
       .then(res => res.data)
       .then(campuses => this.setState({ campuses }))
       .catch(console.error)
   }
 
-  render () {
+  render() {
     const campuses = this.state.campuses.map(campus => (
-      <tr key={campus.id} >
-        <td><Link to={`/campuses/${campus.id}`}>{campus.name}</Link></td>
-      </tr>
+      <div key={campus.id} >
+        <div><Link to={`/campuses/${campus.id}`}>{campus.name}</Link></div>
+      </div>
     ))
 
     return (
-      <table>
-        <tbody>
-          <tr>
-            <th>Campus</th>
-          </tr>
-          {campuses ? campuses : <tr>Directory Empty</tr>}
-        </tbody>
-      </table>
+      <div>
+        <h2>Our Locations</h2>
+        <div>
+          {campuses}
+        </div>
+        <button className='button'><Link to='/campuses/add'>Add A Campus</Link></button>
+      </div>
     )
   }
 
 }
+
+// delete functionality

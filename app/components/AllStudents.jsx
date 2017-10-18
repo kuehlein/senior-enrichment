@@ -1,6 +1,7 @@
 'use strict'
 
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Table from './Table'
 
@@ -21,7 +22,15 @@ export default class AllStudents extends Component {
   }
 
   render () {
-    return <Table students={this.state.students}/>
+    return (
+      <div>
+        <Table students={this.state.students}/>
+        <button className='button'><Link to='/students/add'>Add A Student</Link></button>
+      </div>
+    )
   }
 
 }
+
+
+// delete functionality

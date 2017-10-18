@@ -27,7 +27,7 @@ export default class SingleCampus extends Component {
     return (
       <div>
         <div>{ campus.name }</div>
-        { students && <div>{ <Table students={ students } /> }</div> }
+        { students ? <div>{ <Table students={ students } /> }</div> : <div>Campus has no students</div> }
       </div>
     )
   }
