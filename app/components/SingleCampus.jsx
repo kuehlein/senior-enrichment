@@ -54,5 +54,3 @@ export default class SingleCampus extends Component {
 
 }
 
-// add delete and edit functionality
-
