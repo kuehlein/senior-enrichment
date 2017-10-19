@@ -39,5 +39,3 @@ export default class AllCampuses extends Component {
   }
 
 }
-
-// delete functionality
