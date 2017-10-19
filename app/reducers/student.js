@@ -66,22 +66,13 @@ export default (state = initialState, action) => {
   switch (action.type) {
 
     case GET_STUDENT:
-      return ({
-        ...state,
-        student: action.student
-      })
+      return Object.assign({}, state, { student: action.student }) // ({...state, student: action.student})
 
     case CREATE_STUDENT:
-      return ({
-        ...state,
-        student: action.student
-      })
+      return Object.assign({}, state, { student: action.student }) // ({...state, student: action.student})
 
     case UPDATE_STUDENT:
-      return ({
-        ...state,
-        student: action.student
-      })
+      return Object.assign({}, state, { student: action.student }) // ({...state, student: action.student})
 
     default:
       return state

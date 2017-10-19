@@ -13,6 +13,7 @@ const initialState = {
 const GET_CAMPUS = 'GET_CAMPUS'
 const CREATE_CAMPUS = 'CREATE_CAMPUS'
 const UPDATE_CAMPUS = 'UPDATE_CAMPUS'
+const DESTROY_CAMPUS = 'DESTROY_CAMPUS'
 
 
 /*----- action creators -----*/
@@ -31,11 +32,16 @@ export const updateCampus = (campus) => ({
   campus
 })
 
+export const destoryCampus = (campus) => ({
+  type: DESTROY_CAMPUS,
+  campus
+})
+
 
 /*----- thunk creators -----*/
-export function fetchCampus() {
+export function fetchCampus(campusId) {
   return function thunk(dispatch) {
-    return axios.get('/api/campuses/:id')
+    return axios.get(`/api/campuses/${campusId}`)
       .then(res => res.data)
       .then(campus => dispatch(getCampus(campus)))
       .catch(console.error)
@@ -60,28 +66,31 @@ export function editCampus() {
   }
 }
 
+export function deleteCampus() {
+  return function thunk(dispatch) {
+    return axios.delete('/api/campuses/:id')
+      .then(res => res.data)
+      .then(campus => dispatch(destroyCampus(campus)))
+      .catch(console.error)
+  }
+}
+
 
 /*----- reducer -----*/
 export default (state = initialState, action) => {
   switch (action.type) {
 
     case GET_CAMPUS:
-      return ({
-        ...state,
-        name: action.campus
-      })
+      return Object.assign({}, state, action.campus) // ({...state, name: action.campus})
 
     case CREATE_CAMPUS:
-      return ({
-        ...state,
-        name: action.campus
-      })
+      return Object.assign({}, state, action.campus) // ({...state, name: action.campus})
 
     case UPDATE_CAMPUS:
-      return ({
-        ...state,
-        name: action.campus
-      })
+      return Object.assign({}, state, action.campus) // ({...state, name: action.campus})
+
+    case DESTROY_CAMPUS:
+      return state = { name: '' }
 
     default:
       return state

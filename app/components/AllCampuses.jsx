@@ -2,26 +2,20 @@
 
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import axios from 'axios'
 
+import { fetchCampuses } from '../store'
 
-export default class AllCampuses extends Component {
-  constructor() {
-    super()
-    this.state = {
-      campuses: []
-    }
-  }
+
+class AllCampuses extends Component {
 
   componentDidMount() {
-    axios.get('/api/campuses/')
-      .then(res => res.data)
-      .then(campuses => this.setState({ campuses }))
-      .catch(console.error)
+    this.props.fetchCampuses()
   }
 
   render() {
-    const campuses = this.state.campuses.map(campus => (
+    const campuses = this.props.campuses.map(campus => (
       <div key={campus.id} >
         <div><Link to={`/campuses/${campus.id}`}>{campus.name}</Link></div>
       </div>
@@ -39,3 +33,12 @@ export default class AllCampuses extends Component {
   }
 
 }
+
+const mapStateToProps = (store) => ({ campuses: store.allCampuses })
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchCampuses: () => dispatch(fetchCampuses())
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AllCampuses)

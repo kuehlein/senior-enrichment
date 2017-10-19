@@ -6,3 +6,5 @@ import rootReducer from './reducers'
 
 
 export default createStore(rootReducer, applyMiddleware(thunkMiddleware, createLogger()))
+
+export * from './reducers' // ???????????

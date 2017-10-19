@@ -3,33 +3,30 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+
 import Table from './Table'
+import { fetchCampus, deleteCampus } from '../store'
 
 
-export default class SingleCampus extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      campus: {}
-    }
-  }
+class SingleCampus extends Component {
 
   componentDidMount () {
-    axios.get(`/api/campuses/${this.props.match.params.campusId}`)
-      .then(res => res.data)
-      .then(campus => this.setState({ campus }))
-      .catch(console.error)
+    this.props.fetchCampus(+this.props.match.params.campusId)
   }
 
-  handleClick () {
-    axios.delete(`/api/campuses/${this.state.campus.id}`)
-      .then(res => res.data)
+  handleClick (event) {
+    // axios.delete(`/api/campuses/${this.state.campus.id}`)
+    //   .then(res => res.data)
+    //   .then(() => this.props.history.push(`/`))
+    //   .catch(console.error)
+
+    this.props.deleteCampus(event.target.value)
       .then(() => this.props.history.push(`/`))
-      .catch(console.error)
   }
 
   render () {
-    const campus = this.state.campus
+    const campus = this.props.campus
     const students = campus.students
 
     return (
@@ -47,10 +44,19 @@ export default class SingleCampus extends Component {
         >Delete Campus</button>
         <button
           className='button'
-        ><Link to={`/campuses/${this.state.campus.id}/edit`}>Edit Campus</Link></button>
+        ><Link to={`/campuses/${this.props.campus.id}/edit`}>Edit Campus</Link></button>
       </div>
     )
   }
 
 }
 
+const mapStateToProps = (store) => ({ campus: store.campus })
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchCampus: (campusId) => dispatch(fetchCampus(campusId)),
+  deleteCampus: (campus) => dispatch(deleteCampus(campus))
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleCampus)
