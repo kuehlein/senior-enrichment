@@ -56,17 +56,6 @@ header nav {
   background-color: #9ed670;
 }
 
-.footer {
-  display: flex;
-  position: fixed;
-  width: 100vw;
-  font-family: 'Crimson Text', serif;
-  color: #fff;
-  background-color: #4d7358;
-  bottom: 0em;
-  height: 7vh
-}
-
 .button {
   background-color: #4d7358;
   font-size: 1.3em;

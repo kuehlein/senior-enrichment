@@ -35,7 +35,7 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 ### Views and Functionality
 #### See Wireframes folder for visual
 
-- Navigation: as a user I...
+<!-- - Navigation: as a user I...
   * will land on **Home** by default
   * can navigate to **Campuses** from **Home**
   * can navigate to **Students** from **Home**
@@ -56,7 +56,7 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
   * can delete a campus
   * can create a student
   * can edit a student's info, including the campus that student is assigned to
-  * can delete a student
+  * can delete a student -->
 
 ### Routes
 

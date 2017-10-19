@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Navbar from './Navbar'
-import Footer from './Footer'
 
 
 const Root = ({ children }) => (
@@ -11,7 +10,6 @@ const Root = ({ children }) => (
     <div className='main'>
       { children }
     </div>
-    <Footer />
   </div>
 )
 
