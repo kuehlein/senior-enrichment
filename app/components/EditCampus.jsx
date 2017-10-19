@@ -28,7 +28,7 @@ export default class EditCampus extends Component {
 
   render() {
     return (
-      <div>
+      <div> { /* form to edit campus */ }
         <h3>Edit Campus</h3><br />
         <form onSubmit={ this.handleSubmit }>
           <p className='title'>Name<input

@@ -11,6 +11,7 @@ const connectionString = process.env.DATABASE_connectionString || `postgres://lo
 console.log(chalk.yellow(`Opening database connection to ${connectionString}`))
 
 
+// creates database
 const db = new Sequelize(connectionString, {
   logging: debug,
   native: true

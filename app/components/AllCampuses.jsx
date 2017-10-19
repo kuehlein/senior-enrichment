@@ -20,7 +20,7 @@ export default class AllCampuses extends Component {
       .catch(console.error)
   }
 
-  render() {
+  render() { // map over all campuses
     const campuses = this.state.campuses.map(campus => (
       <div key={campus.id} >
         <div><Link to={`/campuses/${campus.id}`}>{campus.name}</Link></div>

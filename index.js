@@ -1,6 +1,5 @@
 'use strict'
 
-//is this page useful at all in the final product?
 
 const chalk = require('chalk')
 const pkg = require('./package.json')

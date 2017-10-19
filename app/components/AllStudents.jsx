@@ -23,7 +23,7 @@ export default class AllStudents extends Component {
 
   render () {
     return (
-      <div>
+      <div> { /* use Table to map out students on a table */ }
         <h1>Student Directory</h1>
         <Table students={this.state.students}/>
         <button className='button'><Link to='/students/add'>Add A Student</Link></button>

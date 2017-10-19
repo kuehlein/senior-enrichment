@@ -9,6 +9,7 @@ Student.belongsTo(Campus)
 Campus.hasMany(Student, {'onDelete': 'cascade', hooks: true})
 
 
+// source of models for the rest of app
 module.exports = {
 	Student,
 	Campus

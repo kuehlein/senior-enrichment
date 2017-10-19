@@ -4,6 +4,7 @@ const db = require('../')
 const Sequelize = require('sequelize')
 
 
+// student model
 const Student = db.define('student', {
   name: {
     type: Sequelize.STRING,

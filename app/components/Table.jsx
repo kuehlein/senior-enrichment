@@ -4,6 +4,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
+// map over students and lay them out into a table
 const Table = (props) => {
   const students = props.students.map(student => (
     <tr key={ student.id }>

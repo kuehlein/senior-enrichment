@@ -23,7 +23,7 @@ export default class AddCampus extends Component {
 
   render() {
     return (
-      <div>
+      <div> { /* form to add campus */ }
         <h1>Add A Campus</h1><br />
         <form onSubmit={ this.handleSubmit }>
           <p className='title'>Name <input

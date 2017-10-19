@@ -4,6 +4,7 @@ const api = require('express').Router()
 const db = require('../db')
 
 
+// path to all routes
 api.use(require('./routes'))
 
 

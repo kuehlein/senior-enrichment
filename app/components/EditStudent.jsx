@@ -33,7 +33,7 @@ export default class EditStudent extends Component {
 
   render() {
     return (
-      <div>
+      <div> { /* form to edit student */ }
         <h3>Edit Student</h3><br />
         <form onSubmit={ this.handleSubmit }>
           <p className='title'>Name<input

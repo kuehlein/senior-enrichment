@@ -31,7 +31,7 @@ export default class AddStudent extends Component {
 
   render() {
     return (
-      <div>
+      <div> { /* form to add student */ }
         <h1>Add A Student</h1><br />
         <form onSubmit={ this.handleSubmit }>
           <p className='title'>Name <input

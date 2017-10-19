@@ -36,7 +36,7 @@ export default class SingleCampus extends Component {
       <div>
         <h4 className='title'>Campus Name:</h4><div>{ campus.name }</div>
         <h4 className='title'>Students Attending:</h4>
-        {
+        { // map over students in campus with table
           students
             ? <div>{ <Table students={ students } /> }</div>
             : <div>Campus has no students</div>
@@ -53,6 +53,3 @@ export default class SingleCampus extends Component {
   }
 
 }
-
-// add delete and edit functionality
-
