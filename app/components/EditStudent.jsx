@@ -2,33 +2,30 @@
 
 import React, { Component } from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
+
+import { editStudent } from '../store'
 
 
-export default class EditStudent extends Component {
+class EditStudent extends Component {
   constructor(props) {
     super(props)
-    // this.state = {
-    //   inputName: '',
-    //   inputEmail: '',
-    //   inputCampus: 0
-    // }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleSubmit(event) {
     event.preventDefault()
-    const name = this.state.inputName
-    const email = this.state.inputEmail
-    const campusId = this.state.inputCampus
-    const student = {}
+    const name = event.target.name.value
+    const email = event.target.email.value
+    const campusId = event.target.campusId.value
+    const student = { id: this.props.match.params.studentId }
     if (name) student.name = name
     if (email) student.email = email
     if (campusId) student.campusId = campusId
 
-    // axios.put(`/api/students/${this.props.match.params.studentId}`, student)
-    //   .then(res => res.data)
-    //   .then(editedStudent => this.props.history.push(`/students/${editedStudent.id}`))
-    //   .catch(console.error)
+    this.props.editStudent(student)
+    .then(student => this.props.history.push(`/students/${student.id}`))
+    .catch(console.error)
   }
 
   render() {
@@ -55,3 +52,12 @@ export default class EditStudent extends Component {
   }
 
 }
+
+const mapStateToProps = (store) => ({ student: store.student })
+
+const mapDispatchToProps = (dispatch) => ({
+  editStudent: (student) => dispatch(editStudent(student)),
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditStudent)

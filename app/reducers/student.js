@@ -54,12 +54,14 @@ export function makeStudent(student) {
   }
 }
 
-export function editStudent(studentId, history) {
+export function editStudent(student) {
   return function thunk(dispatch) {
-    return axios.put(`/api/students/${studentId}`)
+    return axios.put(`/api/students/${student.id}`, student)
       .then(res => res.data)
-      .then(student => dispatch(updateStudent(student)))
-      .then(student => history.push(`/students/${newStudent.id}`))
+      .then(student => {
+        dispatch(updateStudent(student))
+        return student
+      })
       .catch(console.error)
   }
 }

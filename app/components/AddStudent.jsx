@@ -51,10 +51,9 @@ class AddStudent extends Component {
 
 }
 
-
 const mapStateToProps = (store) => ({ student: store.student })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
   makeStudent: (student) => dispatch(makeStudent(student)),
 })
 

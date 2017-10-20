@@ -52,17 +52,23 @@ export function makeCampus(campus) {
   return function thunk(dispatch) {
     return axios.post('/api/campuses', campus)
       .then(res => res.data)
-      .then(newCampus => dispatch(createCampus(newCampus)))
+      .then(newCampus => {
+        dispatch(createCampus(newCampus))
+        return newCampus
+      })
       .catch(console.error)
   }
 }
 
-export function editCampus(campusId, history) {
+export function editCampus(campus) {
   return function thunk(dispatch) {
-    return axios.put(`/api/campuses/${campusId}`)
+    return axios.put(`/api/campuses/${campus.id}`, campus)
       .then(res => res.data)
       .then(newCampus => dispatch(updateCampus(newCampus)))
-      .then(newCampus => history.push(`/campuses/${newCampus.id}`))
+      .then(newCampus => {
+        history.push(`/campuses/${newCampus.id}`)
+        return newCampus
+      })
       .catch(console.error)
   }
 }

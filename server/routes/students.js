@@ -33,7 +33,6 @@ router.post('/', (req, res, next) => {
   console.log(req.body)
   Student.create(req.body)
     .then(student => {
-      console.log('#$%%$#@%$#@!', student.dataValues)
       res.status(201).send(student.dataValues)
     })
     .catch(next)
