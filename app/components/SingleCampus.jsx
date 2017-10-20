@@ -15,14 +15,10 @@ class SingleCampus extends Component {
     this.props.fetchCampus(+this.props.match.params.campusId)
   }
 
-  handleClick (event) {
-    // axios.delete(`/api/campuses/${this.state.campus.id}`)
-    //   .then(res => res.data)
-    //   .then(() => this.props.history.push(`/`))
-    //   .catch(console.error)
-
-    this.props.deleteCampus(event.target.value)
+  handleClick (campus) {
+    this.props.deleteCampus(campus.id)
       .then(() => this.props.history.push(`/`))
+      .catch(console.error)
   }
 
   render () {

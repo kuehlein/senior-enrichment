@@ -32,7 +32,7 @@ export const updateCampus = (campus) => ({
   campus
 })
 
-export const destoryCampus = (campus) => ({
+export const destroyCampus = (campus) => ({
   type: DESTROY_CAMPUS,
   campus
 })
@@ -48,27 +48,28 @@ export function fetchCampus(campusId) {
   }
 }
 
-export function makeCampus() {
+export function makeCampus(campus) {
   return function thunk(dispatch) {
-    return axios.post('/api/campuses')
+    return axios.post('/api/campuses', campus)
       .then(res => res.data)
-      .then(campus => dispatch(createCampus(campus)))
+      .then(newCampus => dispatch(createCampus(newCampus)))
       .catch(console.error)
   }
 }
 
-export function editCampus() {
+export function editCampus(campusId, history) {
   return function thunk(dispatch) {
-    return axios.put('/api/campuses/:id')
+    return axios.put(`/api/campuses/${campusId}`)
       .then(res => res.data)
-      .then(campus => dispatch(updateCampus(campus)))
+      .then(newCampus => dispatch(updateCampus(newCampus)))
+      .then(newCampus => history.push(`/campuses/${newCampus.id}`))
       .catch(console.error)
   }
 }
 
-export function deleteCampus() {
+export function deleteCampus(campusId) {
   return function thunk(dispatch) {
-    return axios.delete('/api/campuses/:id')
+    return axios.delete(`/api/campuses/${campusId}`)
       .then(res => res.data)
       .then(campus => dispatch(destroyCampus(campus)))
       .catch(console.error)
@@ -81,13 +82,13 @@ export default (state = initialState, action) => {
   switch (action.type) {
 
     case GET_CAMPUS:
-      return Object.assign({}, state, action.campus) // ({...state, name: action.campus})
+      return Object.assign({}, state, action.campus)
 
     case CREATE_CAMPUS:
-      return Object.assign({}, state, action.campus) // ({...state, name: action.campus})
+      return Object.assign({}, state, action.campus)
 
     case UPDATE_CAMPUS:
-      return Object.assign({}, state, action.campus) // ({...state, name: action.campus})
+      return Object.assign({}, state, action.campus)
 
     case DESTROY_CAMPUS:
       return state = { name: '' }

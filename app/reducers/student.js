@@ -3,16 +3,11 @@
 import axios from 'axios'
 
 
-/*------- initial state --------*/
-const initialState = {
-  student: {}
-}
-
-
 /*------- action types -------*/
 const GET_STUDENT = 'GET_STUDENT'
 const CREATE_STUDENT = 'CREATE_STUDENT'
 const UPDATE_STUDENT = 'UPDATE_STUDENT'
+const DESTROY_STUDENT = 'DESTROY_STUDENT'
 
 
 /*----- action creators -----*/
@@ -31,48 +26,69 @@ export const updateStudent = (student) => ({
   student
 })
 
+export const destroyStudent = (student) => ({
+  type: DESTROY_STUDENT,
+  student
+})
+
 
 /*----- thunk creators -----*/
-export function fetchStudent() {
+export function fetchStudent(studentId) {
   return function thunk(dispatch) {
-    return axios.get('/api/students/:id')
+    return axios.get(`/api/students/${studentId}`)
       .then(res => res.data)
       .then(student => dispatch(getStudent(student)))
       .catch(console.error)
   }
 }
 
-export function makeStudent() {
+export function makeStudent(student) {
   return function thunk(dispatch) {
-    return axios.post('/api/students')
+    return axios.post('/api/students', student)
       .then(res => res.data)
-      .then(student => dispatch(createStudent(student)))
+      .then(newStudent => {
+        dispatch(createStudent(newStudent))
+        return newStudent
+      })
       .catch(console.error)
   }
 }
 
-export function editStudent() {
+export function editStudent(studentId, history) {
   return function thunk(dispatch) {
-    return axios.put('/api/students/:id')
+    return axios.put(`/api/students/${studentId}`)
       .then(res => res.data)
       .then(student => dispatch(updateStudent(student)))
+      .then(student => history.push(`/students/${newStudent.id}`))
+      .catch(console.error)
+  }
+}
+
+export function deleteStudent(studentId) {
+  return function thunk(dispatch) {
+    return axios.delete(`/api/students/${studentId}`)
+      .then(res => res.data)
+      .then(student => dispatch(destroyStudent(student)))
       .catch(console.error)
   }
 }
 
 
 /*----- reducer -----*/
-export default (state = initialState, action) => {
+export default (state = {}, action) => {
   switch (action.type) {
 
     case GET_STUDENT:
-      return Object.assign({}, state, { student: action.student }) // ({...state, student: action.student})
+      return action.student
 
     case CREATE_STUDENT:
-      return Object.assign({}, state, { student: action.student }) // ({...state, student: action.student})
+      return action.student
 
     case UPDATE_STUDENT:
-      return Object.assign({}, state, { student: action.student }) // ({...state, student: action.student})
+      return action.student
+
+      case DESTROY_STUDENT:
+        return state = {}
 
     default:
       return state
