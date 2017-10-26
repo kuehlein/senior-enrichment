@@ -30,7 +30,6 @@ router.get('/:studentId', (req, res, next) => {
 
 // create student
 router.post('/', (req, res, next) => {
-  console.log(req.body)
   Student.create(req.body)
     .then(student => {
       res.status(201).send(student.dataValues)

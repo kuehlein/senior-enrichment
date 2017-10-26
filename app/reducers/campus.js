@@ -64,9 +64,8 @@ export function editCampus(campus) {
   return function thunk(dispatch) {
     return axios.put(`/api/campuses/${campus.id}`, campus)
       .then(res => res.data)
-      .then(newCampus => dispatch(updateCampus(newCampus)))
       .then(newCampus => {
-        history.push(`/campuses/${newCampus.id}`)
+        dispatch(updateCampus(newCampus))
         return newCampus
       })
       .catch(console.error)
